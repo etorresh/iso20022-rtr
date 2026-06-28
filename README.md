@@ -1,0 +1,1 @@
+I'm interested Payment's Canada Real-Time Rail payment system, and think it's important Canada's has it's own payment system similar to India's UPI. I'll use this section to mention what I've learned about RTR, Payments Canada, and zero copy in Rust.
