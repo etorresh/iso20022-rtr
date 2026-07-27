@@ -1,4 +1,4 @@
-use rtr_iso20022::Pacs008;
+use rtr_iso20022::{Pacs002, Pacs008};
 use serde::{Serialize, de::DeserializeOwned};
 
 pub fn assert_roundtrip<T: Serialize + DeserializeOwned>(raw_json: &str) {
@@ -48,4 +48,4 @@ macro_rules! test_roundtrip {
     };
 }
 
-test_roundtrip!(incoming_pacs_008_happy_path, Pacs008);
+test_roundtrip!(incoming_pacs_008_happy_path, Pacs008, Pacs002);
