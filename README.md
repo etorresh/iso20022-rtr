@@ -1,1 +1,9 @@
-I'm interested Payment's Canada Real-Time Rail payment system, and think it's important Canada's has it's own payment system similar to India's UPI. I'll use this section to mention what I've learned about RTR, Payments Canada, and zero copy in Rust.
+# RTR ISO 20022
+
+## License
+Licensed under either of
+ * Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+ * MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+
+### Contribution
+Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in the work by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any additional terms or conditions.
