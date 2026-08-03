@@ -11,6 +11,7 @@ pub fn assert_roundtrip<T: Serialize + DeserializeOwned>(raw_json: &str) {
     assert_eq!(original_ast, new_ast);
 }
 
+// TODO: Change this to work with the new Message union and also have it check if the message type returned is what was expected
 macro_rules! test_roundtrip {
     ($folder_name:ident, $req_ty:ty, $res_ty:ty) => {
         mod $folder_name {
