@@ -1,4 +1,4 @@
-# RTR ISO 20022
+# Parser for Payments Canada Real-Time Rail (RTR) ISO 20022
 
 ## Licence
 Dual-licensed under either:
