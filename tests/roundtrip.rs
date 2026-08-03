@@ -1,4 +1,4 @@
-use rtr_iso20022::{Pacs002, Pacs008};
+use rtr_iso20022::Message;
 use serde::{Serialize, de::DeserializeOwned};
 
 pub fn assert_roundtrip<T: Serialize + DeserializeOwned>(raw_json: &str) {
@@ -12,7 +12,6 @@ pub fn assert_roundtrip<T: Serialize + DeserializeOwned>(raw_json: &str) {
 }
 
 macro_rules! test_roundtrip {
-    // 3 args: request and response
     ($folder_name:ident, $req_ty:ty, $res_ty:ty) => {
         mod $folder_name {
             use super::*;
@@ -51,4 +50,4 @@ macro_rules! test_roundtrip {
     };
 }
 
-test_roundtrip!(incoming_pacs_008_happy_path, Pacs008);
+test_roundtrip!(incoming_pacs_008_happy_path, Message);
