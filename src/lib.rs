@@ -11,7 +11,7 @@ mod datatypes;
 pub struct Message {
     business_application_header: Head001,
     #[serde(flatten)]
-    payload: MessageType,
+    pub payload: MessageType,
 }
 
 #[derive(Deserialize, Serialize)]
