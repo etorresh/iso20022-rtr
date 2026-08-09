@@ -4,7 +4,6 @@ use messages::head_001::Head001;
 use messages::pacs_002::Pacs002;
 use messages::pacs_008::Pacs008;
 use serde::{Deserialize, Serialize};
-
 mod datatypes;
 
 #[derive(Deserialize, Serialize)]

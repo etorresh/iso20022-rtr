@@ -1,9 +1,12 @@
 use chrono::DateTime;
 use serde::{Deserialize, Serialize};
+use serde_with::skip_serializing_none;
 
+#[skip_serializing_none]
 #[derive(Deserialize, Serialize)]
 pub struct PartyIdentification135 {
-    identification: Party38Choice,
+    identification: Option<Party38Choice>,
+    name: Option<String>,
 }
 
 #[derive(Deserialize, Serialize)]
@@ -272,4 +275,76 @@ pub enum ExternalCashClearingSystem1Code {
     CBH,
     CBP,
     DZR,
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct CreditTransferTransaction39__1 {
+    payment_identification: PaymentIdentification7,
+    payment_type_information: PaymentTypeInformation28,
+    interbank_settlement_amount: ActiveOrHistoryCurrencyAndAmount,
+    interbank_settlement_date: String,
+    charge_bearer: String,
+    instructing_agent: Option<BranchAndFinancialInstitutionIdentification6>,
+    instructed_agent: Option<BranchAndFinancialInstitutionIdentification6>,
+    debtor: PartyIdentification135,
+    debtor_account: Option<CashAccount38>,
+    debtor_agent: BranchAndFinancialInstitutionIdentification6,
+    creditor_agent: BranchAndFinancialInstitutionIdentification6,
+    creditor: PartyIdentification135,
+    creditor_account: Option<CashAccount38>,
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct PaymentIdentification7 {
+    end_to_end_identification: Max35Text,
+    uetr: UUIDv4Identifier,
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct UUIDv4Identifier(String);
+
+#[derive(Deserialize, Serialize)]
+pub struct PaymentTypeInformation28 {
+    local_instrument: LocalInstrument2Choice,
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct LocalInstrument2Choice {
+    proprietary: Max35Text,
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct ActiveOrHistoryCurrencyAndAmount {
+    currency: String,
+    amount: u64, // custom impl that to stay in u64 since t he constraints are perfectly fine for it vs rust_decimal
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct CashAccount38 {
+    identification: AccountIdentification4Choice,
+}
+#[derive(Deserialize, Serialize)]
+pub struct AccountIdentification4Choice {
+    other: GenericAccountIdentification1,
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct GenericAccountIdentification1 {
+    identification: Max34Text,
+}
+
+#[derive(Deserialize, Serialize)]
+#[serde(try_from = "String")]
+pub struct Max34Text(String);
+impl TryFrom<String> for Max34Text {
+    type Error = &'static str;
+
+    fn try_from(value: String) -> Result<Self, Self::Error> {
+        let len = value.chars().count();
+        if len < 1 || len > 34 {
+            Err("Text must be between 1 and 34 characters")
+        } else {
+            Ok(Max34Text(value))
+        }
+    }
 }
