@@ -76,3 +76,200 @@ impl TryFrom<String> for ISONormalisedDateTime {
         Ok(ISONormalisedDateTime(value))
     }
 }
+
+#[derive(Deserialize, Serialize)]
+pub struct GroupHeader93__1 {
+    message_identification: Max35Text,
+    creation_date_time: ISONormalisedDateTime,
+    number_of_transactions: Max15NumericText, // must be always 1 but that might be up to the business rules validator. I should get a better understanding of when to enforce at the parser level
+    settlement_information: SettlementInstruction7,
+}
+
+#[derive(Deserialize, Serialize)]
+#[serde(try_from = "String")]
+pub struct Max15NumericText(String);
+impl TryFrom<String> for Max15NumericText {
+    type Error = &'static str;
+
+    fn try_from(value: String) -> Result<Self, Self::Error> {
+        let len = value.chars().count();
+        if len < 1 || len > 15 {
+            Err("Text must be between 1 and 15 characters")
+        } else if value.bytes().any(|b| !b.is_ascii_digit()) {
+            Err("Text must only contain digits from 0 through 9")
+        } else {
+            Ok(Max15NumericText(value))
+        }
+    }
+}
+
+#[derive(Deserialize, Serialize)]
+struct SettlementInstruction7 {
+    settlement_method: SettlementMethod1Code,
+    clearing_system: ClearingSystem,
+}
+
+#[derive(Deserialize, Serialize)]
+pub enum SettlementMethod1Code {
+    #[serde(rename = "CLRG")]
+    ClearingSystem,
+    #[serde(rename = "COVE")]
+    CoverMethod,
+    #[serde(rename = "INDA")]
+    InstructedAgent,
+    #[serde(rename = "INGA")]
+    InstructingAgent,
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct ClearingSystem {
+    code: ExternalCashClearingSystem1Code,
+}
+
+// External code sets can be downloaded from www.iso20022.org.
+// Type: CodeSet
+// https://www.iso20022.org/catalogue/additional-content-messages/external-code-sets
+#[derive(Deserialize, Serialize)]
+pub enum ExternalCashClearingSystem1Code {
+    ABE,
+    ACH,
+    ACS,
+    AIP,
+    ART,
+    AVP,
+    AZM,
+    BAP,
+    BCC,
+    BCE,
+    BDS,
+    BEL,
+    BGN,
+    BHS,
+    BIS,
+    BOF,
+    BOJ,
+    BRL,
+    BSP,
+    CAD,
+    CAM,
+    CBA,
+    CBC,
+    CBJ,
+    CCE,
+    CHI,
+    CHP,
+    CIP,
+    CIS,
+    COE,
+    COI,
+    COU,
+    DDK,
+    DKC,
+    EBA,
+    ELS,
+    EMZ,
+    EPM,
+    EPN,
+    ERP,
+    FDA,
+    FDN,
+    FDW,
+    FEY,
+    FPS,
+    GIS,
+    HKL,
+    HKS,
+    HRK,
+    HRM,
+    HUF,
+    IBP,
+    INC,
+    IMP,
+    JOD,
+    KPS,
+    LGS,
+    LKB,
+    LVL,
+    LVT,
+    LYX,
+    MEP,
+    MOS,
+    MQQ,
+    MRS,
+    MUP,
+    NAM,
+    NOC,
+    NOR,
+    NPP,
+    NSS,
+    NZE,
+    PCH,
+    PDS,
+    PEG,
+    PNS,
+    PSA,
+    PTR,
+    PVE,
+    ROL,
+    ROS,
+    RTG,
+    RTP,
+    RTR,
+    SCL,
+    SCP,
+    SEC,
+    SEU,
+    SIC,
+    SIP,
+    SIT,
+    SLB,
+    SPG,
+    SSK,
+    ST2,
+    STG,
+    TBF,
+    TCH,
+    TGT,
+    THB,
+    THN,
+    TIS,
+    TOP,
+    TTD,
+    UBE,
+    UIS,
+    UPI,
+    VCS,
+    XCT,
+    ZEN,
+    ZET,
+    ZIS,
+    ISG,
+    NBO,
+    ISW,
+    I27,
+    B27,
+    UKD,
+    RIX,
+    MOC,
+    BOK,
+    KTS,
+    RON,
+    TWP,
+    SRB,
+    RBM,
+    ISR,
+    NFT,
+    RGS,
+    LSW,
+    REN,
+    IBG,
+    SGA,
+    CIT,
+    NAP,
+    RSD,
+    RSE,
+    UGD,
+    CBH,
+    CBP,
+    DZR,
+}
