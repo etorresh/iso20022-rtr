@@ -1,5 +1,8 @@
 # Parser for Payments Canada Real-Time Rail (RTR) ISO 20022
 
+## Schemas
+The schemas in `schemas/` were downloaded from the Payments Canada RTR Usage Guidelines hosted on SWIFT MyStandards (retrieved August 10th 2026)
+
 ## Licence
 Dual-licensed under either:
  * Apache Licence, Version 2.0 ([LICENCE-APACHE](LICENCE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
