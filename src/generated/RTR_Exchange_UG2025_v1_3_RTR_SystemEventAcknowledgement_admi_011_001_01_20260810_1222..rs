@@ -4,18 +4,12 @@ pub mod error {
     pub struct ConversionError(::std::borrow::Cow<'static, str>);
     impl ::std::error::Error for ConversionError {}
     impl ::std::fmt::Display for ConversionError {
-        fn fmt(
-            &self,
-            f: &mut ::std::fmt::Formatter<'_>,
-        ) -> Result<(), ::std::fmt::Error> {
+        fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> Result<(), ::std::fmt::Error> {
             ::std::fmt::Display::fmt(&self.0, f)
         }
     }
     impl ::std::fmt::Debug for ConversionError {
-        fn fmt(
-            &self,
-            f: &mut ::std::fmt::Formatter<'_>,
-        ) -> Result<(), ::std::fmt::Error> {
+        fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> Result<(), ::std::fmt::Error> {
             ::std::fmt::Debug::fmt(&self.0, f)
         }
     }
@@ -98,9 +92,7 @@ impl ::std::convert::From<Max350Text> for ::std::string::String {
 }
 impl ::std::str::FromStr for Max350Text {
     type Err = self::error::ConversionError;
-    fn from_str(
-        value: &str,
-    ) -> ::std::result::Result<Self, self::error::ConversionError> {
+    fn from_str(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         if value.chars().count() > 350usize {
             return Err("longer than 350 characters".into());
         }
@@ -112,9 +104,7 @@ impl ::std::str::FromStr for Max350Text {
 }
 impl ::std::convert::TryFrom<&str> for Max350Text {
     type Error = self::error::ConversionError;
-    fn try_from(
-        value: &str,
-    ) -> ::std::result::Result<Self, self::error::ConversionError> {
+    fn try_from(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         value.parse()
     }
 }
@@ -175,9 +165,7 @@ impl ::std::convert::From<Max35Text> for ::std::string::String {
 }
 impl ::std::str::FromStr for Max35Text {
     type Err = self::error::ConversionError;
-    fn from_str(
-        value: &str,
-    ) -> ::std::result::Result<Self, self::error::ConversionError> {
+    fn from_str(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         if value.chars().count() > 35usize {
             return Err("longer than 35 characters".into());
         }
@@ -189,9 +177,7 @@ impl ::std::str::FromStr for Max35Text {
 }
 impl ::std::convert::TryFrom<&str> for Max35Text {
     type Error = self::error::ConversionError;
-    fn try_from(
-        value: &str,
-    ) -> ::std::result::Result<Self, self::error::ConversionError> {
+    fn try_from(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         value.parse()
     }
 }
@@ -248,7 +234,7 @@ impl<'de> ::serde::Deserialize<'de> for Max35Text {
     Hash,
     Ord,
     PartialEq,
-    PartialOrd
+    PartialOrd,
 )]
 pub enum Max4AlphaNumericTextFixed {
     #[serde(rename = "HBRT")]
@@ -263,9 +249,7 @@ impl ::std::fmt::Display for Max4AlphaNumericTextFixed {
 }
 impl ::std::str::FromStr for Max4AlphaNumericTextFixed {
     type Err = self::error::ConversionError;
-    fn from_str(
-        value: &str,
-    ) -> ::std::result::Result<Self, self::error::ConversionError> {
+    fn from_str(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         match value {
             "HBRT" => Ok(Self::Hbrt),
             _ => Err("invalid value".into()),
@@ -274,9 +258,7 @@ impl ::std::str::FromStr for Max4AlphaNumericTextFixed {
 }
 impl ::std::convert::TryFrom<&str> for Max4AlphaNumericTextFixed {
     type Error = self::error::ConversionError;
-    fn try_from(
-        value: &str,
-    ) -> ::std::result::Result<Self, self::error::ConversionError> {
+    fn try_from(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         value.parse()
     }
 }
@@ -340,22 +322,14 @@ impl SystemEventAcknowledgementV01 {
 pub mod builder {
     #[derive(Clone, Debug)]
     pub struct Event11 {
-        event_code: ::std::result::Result<
-            super::Max4AlphaNumericTextFixed,
-            ::std::string::String,
-        >,
-        event_description: ::std::result::Result<
-            super::Max350Text,
-            ::std::string::String,
-        >,
+        event_code: ::std::result::Result<super::Max4AlphaNumericTextFixed, ::std::string::String>,
+        event_description: ::std::result::Result<super::Max350Text, ::std::string::String>,
     }
     impl ::std::default::Default for Event11 {
         fn default() -> Self {
             Self {
                 event_code: Err("no value supplied for event_code".to_string()),
-                event_description: Err(
-                    "no value supplied for event_description".to_string(),
-                ),
+                event_description: Err("no value supplied for event_description".to_string()),
             }
         }
     }
@@ -367,9 +341,7 @@ pub mod builder {
         {
             self.event_code = value
                 .try_into()
-                .map_err(|e| {
-                    format!("error converting supplied value for event_code: {e}")
-                });
+                .map_err(|e| format!("error converting supplied value for event_code: {e}"));
             self
         }
         pub fn event_description<T>(mut self, value: T) -> Self
@@ -379,17 +351,13 @@ pub mod builder {
         {
             self.event_description = value
                 .try_into()
-                .map_err(|e| {
-                    format!("error converting supplied value for event_description: {e}")
-                });
+                .map_err(|e| format!("error converting supplied value for event_description: {e}"));
             self
         }
     }
     impl ::std::convert::TryFrom<Event11> for super::Event11 {
         type Error = super::error::ConversionError;
-        fn try_from(
-            value: Event11,
-        ) -> ::std::result::Result<Self, super::error::ConversionError> {
+        fn try_from(value: Event11) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 event_code: value.event_code?,
                 event_description: value.event_description?,
@@ -406,23 +374,17 @@ pub mod builder {
     }
     #[derive(Clone, Debug)]
     pub struct SystemEventAcknowledgementV01 {
-        acknowledgement_details: ::std::result::Result<
-            super::Event11,
-            ::std::string::String,
-        >,
-        message_identification: ::std::result::Result<
-            super::Max35Text,
-            ::std::string::String,
-        >,
+        acknowledgement_details: ::std::result::Result<super::Event11, ::std::string::String>,
+        message_identification: ::std::result::Result<super::Max35Text, ::std::string::String>,
     }
     impl ::std::default::Default for SystemEventAcknowledgementV01 {
         fn default() -> Self {
             Self {
                 acknowledgement_details: Err(
-                    "no value supplied for acknowledgement_details".to_string(),
+                    "no value supplied for acknowledgement_details".to_string()
                 ),
                 message_identification: Err(
-                    "no value supplied for message_identification".to_string(),
+                    "no value supplied for message_identification".to_string()
                 ),
             }
         }
@@ -433,13 +395,9 @@ pub mod builder {
             T: ::std::convert::TryInto<super::Event11>,
             T::Error: ::std::fmt::Display,
         {
-            self.acknowledgement_details = value
-                .try_into()
-                .map_err(|e| {
-                    format!(
-                        "error converting supplied value for acknowledgement_details: {e}"
-                    )
-                });
+            self.acknowledgement_details = value.try_into().map_err(|e| {
+                format!("error converting supplied value for acknowledgement_details: {e}")
+            });
             self
         }
         pub fn message_identification<T>(mut self, value: T) -> Self
@@ -447,18 +405,15 @@ pub mod builder {
             T: ::std::convert::TryInto<super::Max35Text>,
             T::Error: ::std::fmt::Display,
         {
-            self.message_identification = value
-                .try_into()
-                .map_err(|e| {
-                    format!(
-                        "error converting supplied value for message_identification: {e}"
-                    )
-                });
+            self.message_identification = value.try_into().map_err(|e| {
+                format!("error converting supplied value for message_identification: {e}")
+            });
             self
         }
     }
     impl ::std::convert::TryFrom<SystemEventAcknowledgementV01>
-    for super::SystemEventAcknowledgementV01 {
+        for super::SystemEventAcknowledgementV01
+    {
         type Error = super::error::ConversionError;
         fn try_from(
             value: SystemEventAcknowledgementV01,
@@ -469,8 +424,7 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::SystemEventAcknowledgementV01>
-    for SystemEventAcknowledgementV01 {
+    impl ::std::convert::From<super::SystemEventAcknowledgementV01> for SystemEventAcknowledgementV01 {
         fn from(value: super::SystemEventAcknowledgementV01) -> Self {
             Self {
                 acknowledgement_details: Ok(value.acknowledgement_details),
