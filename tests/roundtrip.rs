@@ -60,4 +60,4 @@ macro_rules! test_roundtrip {
         }
     };
 }
-test_roundtrip!(pacs_008_credit_transfer_01, Pacs008);
+test_roundtrip!(pacs_008_credit_transfer_01, Pacs008, Pacs002);
