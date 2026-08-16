@@ -1,0 +1,14 @@
+#[path = "RTR_Exchange_UG2025_v1_3_RTR_MessageReject_admi_002_001_01_20260810_1222.rs"]
+pub mod admi_002;
+#[path = "RTR_Exchange_UG2025_v1_3_RTR_SystemEventNotification_admi_004_001_02_20260810_1222.rs"]
+pub mod admi_004;
+#[path = "RTR_Exchange_UG2025_v1_3_RTR_SystemEventAcknowledgement_admi_011_001_01_20260810_1222.rs"]
+pub mod admi_011;
+#[path = "RTR_Exchange_UG2025_v1_3_RTR_BusinessApplicationHeader_head_001_001_02_20260810_1222.rs"]
+pub mod head_001;
+#[path = "RTR_Exchange_UG2025_v1_3_RTR_FIToFIPaymentStatusReport_pacs_002_001_10_20260810_1222.rs"]
+pub mod pacs_002;
+#[path = "RTR_Exchange_UG2025_v1_3_RTR_FIToFICustomerCreditTransfer_pacs_008_001_08_20260810_1222.rs"]
+pub mod pacs_008;
+#[path = "RTR_Exchange_UG2025_v1_3_RTR_FIToFIPaymentStatusRequest_pacs_028_001_03_20260810_1222.rs"]
+pub mod pacs_028;

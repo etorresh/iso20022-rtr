@@ -401,6 +401,7 @@ name = "rtr-iso20022"
 version = "0.1.0"
 dependencies = [
  "chrono",
+ "regress",
  "serde",
  "serde_json",
  "serde_with",

@@ -1,14 +1,17 @@
+mod generated;
+use generated::*;
 mod messages;
 
-use messages::head_001::Head001;
 use messages::pacs_002::Pacs002;
-use messages::pacs_008::Pacs008;
 use serde::{Deserialize, Serialize};
+
+use crate::messages::pacs_008::Pacs008;
+
 mod datatypes;
 
 #[derive(Deserialize, Serialize)]
 pub struct Message {
-    business_application_header: Head001,
+    business_application_header: head_001::BusinessApplicationHeaderV02,
     #[serde(flatten)]
     pub payload: MessageType,
 }
