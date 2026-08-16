@@ -17,3 +17,6 @@ members = [
     ".",
     "tools/codegen"
 ]
+
+[dev-dependencies]
+serde_path_to_error = "0.1.20"

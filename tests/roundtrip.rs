@@ -6,7 +6,12 @@ pub fn assert_roundtrip(file_path: &str, is_expected_variant: impl FnOnce(&Messa
     println!("Parsing the raw string to JSON AST");
     let original_ast: serde_json::Value = serde_json::from_str(&raw_json).unwrap();
     println!("Parsing the raw string to my custom struct");
-    let parsed_struct: Message = serde_json::from_str(&raw_json).unwrap();
+    let mut deserializer = serde_json::Deserializer::from_str(&raw_json);
+    let parsed_struct: Message = serde_path_to_error::deserialize(&mut deserializer)
+        .unwrap_or_else(|err| {
+            let path = err.path().to_string();
+            panic!("Failed to deserialize at `{path}`: {err}");
+        });
     println!("Parsing my custom struct to JSON AST");
     let new_ast: serde_json::Value = serde_json::to_value(&parsed_struct).unwrap();
     assert_eq!(original_ast, new_ast);
@@ -55,4 +60,4 @@ macro_rules! test_roundtrip {
         }
     };
 }
-test_roundtrip!(incoming_pacs_008_happy_path, Pacs008);
+test_roundtrip!(pacs_008_credit_transfer_01, Pacs008);
