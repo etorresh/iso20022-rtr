@@ -13,7 +13,7 @@ pub fn assert_roundtrip(file_path: &str, is_expected_variant: impl FnOnce(&Messa
     assert!(is_expected_variant(&parsed_struct.payload));
 }
 
-// rust-analyzer hates include_str! https://github.com/rust-lang/rust-analyzer/issues/10647 so I'm reading the file at run-time
+// rust-analyzer hates include_str! https://github.com/rust-lang/rust-analyzer/issues/10647 so I'm reading the file at run-time and using format!
 macro_rules! test_roundtrip {
     ($folder_name:ident, $req_ty:path, $res_ty:path) => {
         mod $folder_name {
