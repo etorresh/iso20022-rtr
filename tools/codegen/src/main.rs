@@ -17,7 +17,7 @@ fn main() {
             prettyplease::unparse(&syn::parse2::<syn::File>(type_space.to_stream()).unwrap());
 
         let output_file_stem = schema_path.file_stem().unwrap();
-        let output_path = output_dir.join(output_file_stem).with_extension(".rs");
+        let output_path = output_dir.join(output_file_stem).with_extension("rs");
         fs::write(output_path, contents).unwrap();
     }
 }
