@@ -48,7 +48,7 @@
             },
             "interbank_settlement_amount": {
                     "currency": "CAD",
-                    "amount": 100
+                    "amount": "100"
             },
             "interbank_settlement_date": "2025-05-06",
             "charge_bearer": "SLEV",
