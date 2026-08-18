@@ -1,4 +1,3 @@
-mod datatypes;
 mod generated;
 
 use generated::*;
