@@ -1,7 +1,6 @@
 use std::fs;
 use typify::{TypeSpace, TypeSpaceSettings};
 
-// reference: https://github.com/oxidecomputer/typify/blob/main/example-build/build.rs
 fn main() {
     let schemas_dir = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../schemas/");
     let output_dir = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../src/generated/");
