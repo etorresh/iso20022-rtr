@@ -1,0 +1,35 @@
+{
+        "business_application_header": {
+                "from": {
+                        "organisation_identification": {
+                                "identification": {
+                                        "organisation_identification": {
+                                                "other": {
+                                                        "identification": "999"
+                                                }
+                                        }
+                                }
+                        }
+                },
+                "to": {
+                        "organisation_identification": {
+                                "identification": {
+                                        "organisation_identification": {
+                                                "other": {
+                                                        "identification": "RTR"
+                                                }
+                                        }
+                                }
+                        }
+                },
+                "business_message_identifier": "01112021000047001",
+                "message_definition_identifier": "admi.004.001.02",
+                "creation_date": "2025-05-06T00:00:47.001Z"
+        },
+        "system_event_notification": {
+                "event_information": {
+                        "event_codes": "HBRT",
+                        "event_desription": "1234567890004"
+                }
+        }
+}

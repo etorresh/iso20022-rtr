@@ -1,3 +1,4 @@
+// cargo r -p schema-to-rust
 use std::fs;
 use typify::{TypeSpace, TypeSpaceSettings};
 

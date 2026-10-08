@@ -1,0 +1,38 @@
+{
+        "business_application_header": {
+                "from": {
+                        "financial_institution_identification": {
+                                "financial_institution_identification": {
+                                        "clearing_system_member_identification": {
+                                                "member_identification": "001"
+                                        }
+                                }
+                        }
+                },
+                "to": {
+                        "organisation_identification": {
+                                "identification": {
+                                        "organisation_identification": {
+                                                "other": {
+                                                        "identification": "RCS"
+                                                }
+                                        }
+                                }
+                        }
+                },
+                "business_message_identifier": "1234567890004",
+                "message_definition_identifier": "camt.003.001.07",
+                "creation_date": "2025-05-06T00:00:00.009Z"
+        },
+        "get_account": {
+                "message_header": {
+                        "message_identification": "1234567890004",
+                        "creation_date_time": "2025-05-06T00:00:00.009Z"
+                },
+                "account_query_definition": {
+                        "account_criteria": {
+                                "query_name": "001_IntRep_20250506001"
+                        }
+                }
+        }
+}

@@ -1,0 +1,45 @@
+{
+        "business_application_header": {
+                "from": {
+                        "organisation_identification": {
+                                "identification": {
+                                        "organisation_identification": {
+                                                "other": {
+                                                        "identification": "RCS"
+                                                }
+                                        }
+                                }
+                        }
+                },
+                "to": {
+                        "financial_institution_identification": {
+                                "financial_institution_identification": {
+                                        "clearing_system_member_identification": {
+                                                "member_identification": "001"
+                                        }
+                                }
+                        }
+                },
+                "business_message_identifier": "01112021000047001",
+                "message_definition_identifier": "camt.004.001.08",
+                "creation_date": "2025-05-06T00:00:47.001Z"
+        },
+        "return_account": {
+                "message_header": {
+                        "message_identification": "01112021000047001",
+                        "creation_date_time": "2025-05-06T00:00:47.001Z",
+                        "original_business_query": {
+                                "message_identification": "1234567891112",
+                                "message_name_identification": "camt.003.001.07"
+                        },
+                        "query_name": "001_BalReport_20250506001"
+                },
+                "report_or_error": {
+                        "operational_error": {
+                                "error": {
+                                        "proprietary": "DS0H"
+                                }   
+                        }
+                }
+        }
+}

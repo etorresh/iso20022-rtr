@@ -1,0 +1,55 @@
+{
+        "business_application_header": {
+                "from": {
+                        "financial_institution_identification": {
+                                "financial_institution_identification": {
+                                        "clearing_system_member_identification": {
+                                                "member_identification": "111"
+                                        }
+                                }
+                        }
+                },
+                "to": {
+                        "organisation_identification": {
+                                "identification": {
+                                        "organisation_identification": {
+                                                "other": {
+                                                        "identification": "RTR"
+                                                }
+                                        }
+                                }
+                        }
+                },
+                "business_message_identifier": "12345678999993",
+                "message_definition_identifier": "pacs.028.001.03",
+                "creation_date": "2025-05-06T09:32:47.999Z"
+        },
+        "fi_to_fi_payment_status_request": {
+                "group_header": {
+                        "message_identification": "12345678999993",
+                        "creation_date_time": "2025-05-06T09:32:47.999Z"
+                },
+                "transaction_information": {
+                        "original_group_information": {
+                                "original_message_identification": "12345678900004",
+                                "original_message_name_identification": "pacs.008.001.08"
+                        },
+                        "original_end_to_end_identification": "1234567890114",
+                        "original_uetr": "eb6305c9-1f7f-49de-aed0-16487c27b44d",
+                        "instructing_agent": {
+                                "financial_institution_identification": {
+                                        "clearing_system_member_identification": {
+                                                "member_identification": "111"
+                                        }
+                                }
+                        },
+                        "instructed_agent": {
+                                "financial_institution_identification": {
+                                        "clearing_system_member_identification": {
+                                                "member_identification": "999"
+                                        }
+                                }
+                        }
+                }
+        }
+}

@@ -1,0 +1,105 @@
+{
+        "business_application_header": {
+        "from": {
+                "financial_institution_identification": {
+                        "financial_institution_identification": {
+                                "clearing_system_member_identification": {
+                                        "member_identification": "111"
+                                }
+                        }
+                }
+        },
+        "to": {
+                "organisation_identification": {
+                        "identification": {
+                                "organisation_identification": {
+                                        "other": {
+                                                "identification": "RTR"
+                                        }
+                                }
+                        }
+                }
+        },
+        "business_message_identifier": "12345678900001",
+        "message_definition_identifier": "pacs.008.001.08",
+        "creation_date": "2025-05-06T09:30:47.999Z"
+    },
+    "fi_to_fi_customer_credit_transfer": {
+        "group_header": {
+                "message_identification": "12345678900001",
+                "creation_date_time": "2025-05-06T09:30:47.999Z",
+                "number_of_transactions": "1",
+                "settlement_information": {
+                        "settlement_method": "CLRG",
+                        "clearing_system": {
+                                "code": "RTR"
+                        }
+                }
+        },
+        "credit_transfer_transaction_information": {
+            "payment_identification": {
+                    "end_to_end_identification": "1234567890111",
+                    "uetr": "eb6305c9-1f7f-49de-aed0-16487c27b41d"
+            },
+            "payment_type_information": {
+                    "local_instrument": {
+                            "proprietary": "RTREXCHANGE"
+                    }
+            },
+            "interbank_settlement_amount": {
+                    "currency": "CAD",
+                    "amount": 100
+            },
+            "interbank_settlement_date": "2025-05-06",
+            "charge_bearer": "SLEV",
+            "instructing_agent": {
+                    "financial_institution_identification": {
+                            "clearing_system_member_identification": {
+                                    "member_identification": "111"
+                            }
+                    }
+            },
+            "instructed_agent": {
+                    "financial_institution_identification": {
+                            "clearing_system_member_identification": {
+                                    "member_identification": "999"
+                            }
+                    }
+            },
+            "debtor": {
+                    "name": "Mr. Zhang"
+            },
+            "debtor_account": {
+                    "identification": {
+                            "other": {
+                                    "identification": "12345-123456"
+                            }
+                    }
+            },
+            "debtor_agent": {
+                    "financial_institution_identification": {
+                            "clearing_system_member_identification": {
+                                    "member_identification": "111"
+                            }
+                    }
+            },
+            "creditor_agent": {
+                    "financial_institution_identification": {
+                            "clearing_system_member_identification": {
+                                    "member_identification": "999"
+                            }
+                    }
+            },
+            "creditor": {
+                    "name": "Ms. Chloé"
+            },
+            "creditor_account": {
+                    "identification": {
+                            "other": {
+                                    "identification": "54321-654321"
+                            }
+                    }
+            }
+        }
+    }
+}

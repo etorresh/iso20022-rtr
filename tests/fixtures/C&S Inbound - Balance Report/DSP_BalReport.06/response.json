@@ -1,0 +1,85 @@
+{
+        "business_application_header": {
+                "from": {
+                        "organisation_identification": {
+                                "identification": {
+                                        "organisation_identification": {
+                                                "other": {
+                                                        "identification": "RCS"
+                                                }
+                                        }
+                                }
+                        }
+                },
+                "to": {
+                        "financial_institution_identification": {
+                                "financial_institution_identification": {
+                                        "clearing_system_member_identification": {
+                                                "member_identification": "614"
+                                        }
+                                }
+                        }
+                },
+                "business_message_identifier": "011120211408000",
+                "message_definition_identifier": "camt.004.001.08",
+                "creation_date": "2025-05-06T14:08:00.000Z"
+        },
+        "return_account": {
+                "message_header": {
+                        "message_identification": "011120211408000",
+                        "creation_date_time": "2025-05-06T14:08:00.000Z",
+                        "original_business_query": {
+                                "message_identification": "9876543211116",
+                                "message_name_identification": "camt.003.001.07"
+                        },
+                        "query_name": "614_CurBalReport"
+                },
+                "report_or_error": {
+                        "account_report": [
+                                {
+                                        "account_identification": {
+                                                "other": {
+                                                        "identification": "614"
+                                                }
+                                        },
+                                        "account_or_error": {
+                                                "account": {
+                                                        "name": "Tangerine Bank",
+                                                        "currency": "CAD",
+                                                        "servicer": {
+                                                                "financial_institution_identification": {
+                                                                        "clearing_system_member_identification": {
+                                                                                "member_identification": "888"
+                                                                        },
+                                                                        "name": "Test Bank"
+                                                                }
+                                                        },
+                                                        "multilateral_balance": [
+                                                                {
+                                                                        "amount": 1000,
+                                                                        "credit_debit_indicator": "CRDT",
+                                                                        "type": {
+                                                                                "proprietary": "CCNP"
+                                                                        },
+                                                                        "value_date": {
+                                                                                "date_time": "2025-05-06T14:08:00.000Z"
+                                                                        }
+                                                                },
+                                                                {
+                                                                        "amount": 1000,
+                                                                        "credit_debit_indicator": "CRDT",
+                                                                        "type": {
+                                                                                "proprietary": "CNTP"
+                                                                        },
+                                                                        "value_date": {
+                                                                                "date_time": "2025-05-06T14:08:00.000Z"
+                                                                        }
+                                                                }
+                                                        ]
+                                                }
+                                        }
+                                }
+                        ]
+                }
+        }
+}

@@ -1,0 +1,36 @@
+{
+        "business_application_header": {
+                "from": {
+                        "organisation_identification": {
+                                "identification": {
+                                        "organisation_identification": {
+                                                "other": {
+                                                        "identification": "RTR"
+                                                }
+                                        }
+                                }
+                        }
+                },
+                "to": {
+                        "financial_institution_identification": {
+                                "financial_institution_identification": {
+                                        "clearing_system_member_identification": {
+                                                "member_identification": "111"
+                                        }
+                                }
+                        }
+                },
+                "business_message_identifier": "17122021093048001",
+                "message_definition_identifier": "admi.002.001.01",
+                "creation_date": "2025-05-06T09:30:48.001Z"
+        },
+        "message_reject": {
+                "related_reference": {
+                        "reference": "12345678900016"
+                },
+                "reason": {
+                        "rejecting_party_reason": "FF02",
+                        "reason_description": "**appropriate syntax error found during schema validation failure (Max 350)**"
+                }
+        }
+}

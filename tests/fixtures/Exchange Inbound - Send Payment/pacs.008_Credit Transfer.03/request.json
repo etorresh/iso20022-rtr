@@ -1,0 +1,202 @@
+{
+        "business_application_header": {
+                "from": {
+                        "financial_institution_identification": {
+                                "financial_institution_identification": {
+                                        "clearing_system_member_identification": {
+                                                "member_identification": "111"
+                                        }
+                                }
+                        }
+                },
+                "to": {
+                        "organisation_identification": {
+                                "identification": {
+                                        "organisation_identification": {
+                                                "other": {
+                                                        "identification": "RTR"
+                                                }
+                                        }
+                                }
+                        }
+                },
+                "business_message_identifier": "9876543210511",
+                "message_definition_identifier": "pacs.008.001.08",
+                "creation_date": "2025-05-06T09:30:47.999Z"
+        },
+        "fi_to_fi_customer_credit_transfer": {
+                "group_header": {
+                        "message_identification": "9876543210511",
+                        "creation_date_time": "2025-05-06T09:30:47.999Z",
+                        "number_of_transactions": "1",
+                        "settlement_information": {
+                                "settlement_method": "CLRG",
+                                "clearing_system": {
+                                        "code": "RTR"
+                                }
+                        }
+                },
+                "credit_transfer_transaction_information": {
+                        "payment_identification": {
+                                "end_to_end_identification": "9876543210002",
+                                "uetr": "eb6305c9-1f7f-49de-aed0-16487c27b42d"
+                        },
+                        "payment_type_information": {
+                                "service_level": [
+                                        {
+                                                "proprietary": "INTL"
+                                        }
+                                ],
+                                "local_instrument": {
+                                        "proprietary": "RTREXCHANGE"
+                                }
+                        },
+                        "interbank_settlement_amount": {
+                                "amount": 1590.00,
+                                "currency": "CAD"
+                        },
+                        "interbank_settlement_date": "2025-05-06",
+                        "instructed_amount": {
+                                "amount": 1000,
+                                "currency": "EUR"
+                        },
+                        "exchange_rate": 1.59,
+                        "charge_bearer": "SLEV",
+                        "previous_instructing_agent1": {
+                                "financial_institution_identification": {
+                                        "bicfi": "DAAUDEFFXXX"
+                                }
+                        },
+                        "instructing_agent": {
+                                "financial_institution_identification": {
+                                        "clearing_system_member_identification": {
+                                                "member_identification": "111"
+                                        }
+                                }
+                        },
+                        "instructed_agent": {
+                                "financial_institution_identification": {
+                                        "clearing_system_member_identification": {
+                                                "member_identification": "999"
+                                        }
+                                }
+                        },
+                        "ultimate_debtor": {
+                                "name": "Mr. Ultimate Debtor",
+                                "postal_address": {
+                                        "town_name": "Frankfurt",
+                                        "country": "DE"
+                                },
+                                "identification": {
+                                        "private_identification": {
+                                                "date_and_place_of_birth": {
+                                                        "birth_date": "1963-05-08",
+                                                        "city_of_birth": "New York",
+                                                        "country_of_birth": "US"
+                                                }
+                                        }
+                                }
+                        },
+                        "debtor": {
+                                "name": "Bob's Tire Supply Inc.",
+                                "postal_address": {
+                                        "town_name": "Frankfurt",
+                                        "country": "DE"
+                                },
+                                "identification": {
+                                        "organisation_identification": {
+                                                "lei": "529900T8BM49AURSDO55"
+                                        }
+                                }
+                        },
+                        "debtor_account": {
+                                "identification": {
+                                        "iban": "DE89370400440532013000"
+                                }
+                        },
+                        "debtor_agent": {
+                                "financial_institution_identification": {
+                                        "bicfi": "DEUTDEFFXXX"
+                                }
+                        },
+                        "creditor_agent": {
+                                "financial_institution_identification": {
+                                        "clearing_system_member_identification": {
+                                                "member_identification": "999"
+                                        }
+                                }
+                        },
+                        "creditor": {
+                                "name": "Tire Wholesaler INC",
+                                "postal_address": {
+                                        "town_name": "Ottawa",
+                                        "country": "CA"
+                                },
+                                "identification": {
+                                        "organisation_identification": {
+                                                "other": [
+                                                        {
+                                                                "identification": "123456789098765432"
+                                                        }
+                                                ]
+                                        }
+                                }
+                        },
+                        "creditor_account": {
+                                "identification": {
+                                        "other": {
+                                                "identification": "12345-987654321"
+                                        }
+                                }
+                        },
+                        "ultimate_creditor": {
+                                "name": "Ms. Ultimate Creditor",
+                                "postal_address": {
+                                        "town_name": "Ottawa",
+                                        "country": "CA"
+                                },
+                                "identification": {
+                                        "private_identification": {
+                                                "date_and_place_of_birth": {
+                                                        "birth_date": "1966-10-10",
+                                                        "city_of_birth": "Toronto",
+                                                        "country_of_birth": "CA"
+                                                }
+                                        }
+                                }
+                        },
+                        "purpose": {
+                                "code": "SUPP"
+                        },
+                        "remittance_information": {
+                                "structured": [
+                                        {
+                                                "invoicer": {
+                                                        "name": "Tire Wholesaler INC",
+                                                        "postal_address": {
+                                                                "town_name": "Ottawa",
+                                                                "country": "CA"
+                                                        },
+                                                        "identification": {
+                                                                "organisation_identification": {
+                                                                        "other": [
+                                                                                {
+                                                                                        "identification": "123456789098765432"
+                                                                                }
+                                                                        ]
+                                                                }
+                                                        }
+                                                },
+                                                "invoicee": {
+                                                        "name": "Bob's Tire Supply Inc.",
+                                                        "postal_address": {
+                                                                "town_name": "Frankfurt",
+                                                                "country": "DE"
+                                                        }
+                                                }
+                                        }        
+                                ]
+                        }
+                }
+        }
+}

@@ -1,0 +1,33 @@
+{
+        "business_application_header": {
+                "from": {
+                        "financial_institution_identification": {
+                                "financial_institution_identification": {
+                                        "clearing_system_member_identification": {
+                                                "member_identification": "111"
+                                        }
+                                }
+                        }
+                },
+                "to": {
+                        "organisation_identification": {
+                                "identification": {
+                                        "organisation_identification": {
+                                                "other": {
+                                                        "identification": "RTR"
+                                                }
+                                        }
+                                }
+                        }
+                },
+                "business_message_identifier": "01112021000047001",
+                "message_definition_identifier": "admi.004.001.02",
+                "creation_date": "2025-05-06T00:00:47.001Z"
+        },
+        "system_event_notification": {
+                "event_information": {
+                        "event_code": "HBRT",
+                        "event_description": "1234567890001"
+                }
+        }
+}
