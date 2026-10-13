@@ -1,0 +1,6 @@
+{
+  "request": "pacs.028",
+  "response": {
+    "http": 500
+  }
+}
