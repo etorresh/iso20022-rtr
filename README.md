@@ -6,6 +6,13 @@ The schemas in `schemas/` were downloaded from the Payments Canada RTR Usage Gui
 ## Notes
 - `pacs.008` Amount Type: Both SWIFT MyStandards and the [pacs.008 PDF spec](https://www.payments.ca/sites/default/files/RTR_FItoFI_CustomerCreditTransfer_pacs.008.pdf) define `ActiveCurrencyAndAmount_2decimals---copy.amount` as a string (e.g. `"100.00"`). However, the [sandbox test spreadsheet](https://developer.payments.ca/sites/default/files/2025-09/RTR_Sandbox_API_Test_Scenarios_v3.0_1.xlsx) passes it as a raw integer (e.g. `"amount": 100`). I've emailed Payments Canada for clarification. For now, the local test scenarios are updated to use integers so they match the sandbox data.
 
+## Manual changes to the test fixtures
+The fixtures in `tests/fixtures/` are extracted from the [sandbox test spreadsheet](https://developer.payments.ca/sites/default/files/2025-09/RTR_Sandbox_API_Test_Scenarios_v3.0_1.xlsx) (v3.0_1) with `cargo r -p extract-fixtures`. The extractor does not modify the samples, so the changes below must be applied by hand after every run.
+
+| Category | Test ID | Issue | Workaround |
+|---|---|---|---|
+| Exchange Inbound - Payment Inqu | `pacs.028_Payment Status Request.11` | The sample request has a trailing comma, so it is not valid JSON. | Remove the comma manually after running `extract-fixtures` (not applied yet). |
+
 ## Licence
 Dual-licensed under either:
  * Apache Licence, Version 2.0 ([LICENCE-APACHE](LICENCE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
