@@ -2,21 +2,8 @@
 use std::fs;
 
 use calamine::{DataType, Reader, Xlsx, open_workbook};
-use serde::Serialize;
 
-#[derive(Debug, PartialEq, Serialize)]
-#[serde(rename_all = "lowercase")]
-enum ResponseKind {
-    Iso(String),
-    Http(u16),
-}
-
-/// Written next to the fixtures as `meta.json`.
-#[derive(Debug, PartialEq, Serialize)]
-struct Meta {
-    request: String,
-    response: ResponseKind,
-}
+use fixture_meta::{Meta, ResponseKind};
 
 /// One row of a test-scenario sheet.
 struct Case {
@@ -117,7 +104,6 @@ fn main() {
                 res.starts_with("{").then_some(res)
             };
 
-            // The Message Type column and the Sample Response cell are independent signals; they must agree.
             match (&meta.response, &response) {
                 (ResponseKind::Iso(_), Some(_)) | (ResponseKind::Http(_), None) => {}
                 (ResponseKind::Iso(code), None) => panic!(

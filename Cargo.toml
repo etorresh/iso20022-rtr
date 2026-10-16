@@ -11,13 +11,20 @@ serde = { version = "1.0.229", features = ["derive"] }
 serde_json = "1.0.151"
 serde_with = "3.21.0"
 regress = "0.11.1"
+libtest-mimic = "0.8.2"
 
 [workspace]
 members = [
     ".",
     "tools/schema-to-rust",
-    "tools/extract-fixtures"
+    "tools/extract-fixtures",
+    "tools/fixture-meta"
 ]
 
 [dev-dependencies]
 serde_path_to_error = "0.1.20"
+fixture-meta = {path = "tools/fixture-meta"}
+
+[[test]]
+name = "roundtrip"
+harness = false
