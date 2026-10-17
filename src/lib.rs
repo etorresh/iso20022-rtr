@@ -12,8 +12,16 @@ pub struct Message {
 
 #[derive(Deserialize, Serialize)]
 pub enum MessageType {
-    #[serde(rename = "fi_to_fi_customer_credit_transfer")]
-    Pacs008(pacs_008::FiToFiCustomerCreditTransferV08),
+    #[serde(rename = "message_reject")]
+    Admi002(admi_002::MessageRejectV01),
+    #[serde(rename = "system_event_notification")]
+    Admi004(admi_004::SystemEventNotificationV02),
+    #[serde(rename = "system_event_acknowledgement")]
+    Admi011(admi_011::SystemEventAcknowledgementV01),
     #[serde(rename = "fi_to_fi_payment_status_report")]
     Pacs002(pacs_002::FiToFiPaymentStatusReportV10),
+    #[serde(rename = "fi_to_fi_customer_credit_transfer")]
+    Pacs008(pacs_008::FiToFiCustomerCreditTransferV08),
+    #[serde(rename = "fi_to_fi_payment_status_request")]
+    Pacs028(pacs_028::FiToFiPaymentStatusRequestV03),
 }
