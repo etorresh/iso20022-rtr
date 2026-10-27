@@ -30,12 +30,7 @@
                 },
                 "reason": {
                         "rejecting_party_reason": "FF02",
-                        "reason_description": "File is not valid
-Mandatory property 'interbank_settlement_date', stipulated by schema property 'required', is missing
-Error location: fi_to_fi_customer_credit_transfer / credit_transfer_transaction_information
-Details
-        Property 'credit_transfer_transaction_information' is not valid
-        Property 'fi_to_fi_customer_credit_transfer' is not valid"
+                        "reason_description": "File is not valid Mandatory property 'interbank_settlement_date', stipulated by schema property 'required', is missing Error location: fi_to_fi_customer_credit_transfer / credit_transfer_transaction_information Details Property 'credit_transfer_transaction_information' is not valid Property 'fi_to_fi_customer_credit_transfer' is not valid"
                 }
         }
 }

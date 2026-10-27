@@ -52,15 +52,15 @@
                                 }
                         },
                         "interbank_settlement_amount": {
-                                "amount": 1590.00,
+                                "amount": "1590.00",
                                 "currency": "CAD"
                         },
                         "interbank_settlement_date": "2025-05-06",
                         "instructed_amount": {
-                                "amount": 1000,
+                                "amount": "1000",
                                 "currency": "EUR"
                         },
-                        "exchange_rate": 1.59,
+                        "exchange_rate": "1.59",
                         "charge_bearer": "SLEV",
                         "previous_instructing_agent1": {
                                 "financial_institution_identification": {
@@ -194,7 +194,7 @@
                                                                 "country": "DE"
                                                         }
                                                 }
-                                        }        
+                                        }
                                 ]
                         }
                 }
