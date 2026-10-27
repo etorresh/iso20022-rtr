@@ -64,9 +64,13 @@ fn main() {
     let path_sheet = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("data/RTR_Sandbox_API_Test_Scenarios_v3.0_1.xlsx");
     let mut workbook: Xlsx<_> = open_workbook(path_sheet).unwrap();
-    let sheet_names = workbook.sheet_names();
-    // the first two sheets are "Version History", and "Guidelines" so we skip them, and only work with the sheets with sample JSON
-    let sheet_targets = &sheet_names[2..];
+
+    // skipping "Version History", "Guidelines", "C&S Inbound - Balance Report", and "C&S Inbound - Interest Report"
+    let sheet_targets = [
+        "Exchange Inbound - Send Payment",
+        "Exchange Inbound - Payment Inqu",
+        "Exchange Inbound - Heartbeat",
+    ];
 
     let mut test_dataset = Vec::new();
     for sheet in sheet_targets {
