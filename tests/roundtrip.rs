@@ -19,8 +19,6 @@ fn main() {
         }
     }
 
-    tests_dir_entries.sort_by_key(|a| a.file_name());
-
     let code_of = |payload: &MessageType| match payload {
         MessageType::Admi002(_) => "admi.002",
         MessageType::Admi004(_) => "admi.004",
@@ -74,5 +72,6 @@ fn main() {
         }
     }
 
+    tests.sort_by(|a, b| a.name().cmp(b.name()));
     libtest_mimic::run(&args, tests).exit();
 }
