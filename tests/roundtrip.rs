@@ -72,6 +72,5 @@ fn main() {
         }
     }
 
-    tests.sort_by(|a, b| a.name().cmp(b.name()));
     libtest_mimic::run(&args, tests).exit();
 }
