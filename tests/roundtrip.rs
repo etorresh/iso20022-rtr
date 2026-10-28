@@ -57,6 +57,18 @@ fn main() {
         if code != expected_code {
             return Err(format!("expected {expected_code}, got {code}").into());
         }
+
+        // Compare as values so key order and whitespace don't matter.
+        let original: serde_json::Value = serde_json::from_str(raw_message)?;
+        let reserialized = serde_json::to_value(&message)?;
+        if reserialized != original {
+            return Err(format!(
+                "re-serialized message differs from the original\n--- original\n{}\n--- re-serialized\n{}",
+                serde_json::to_string_pretty(&original)?,
+                serde_json::to_string_pretty(&reserialized)?,
+            )
+            .into());
+        }
         Ok(())
     };
 
