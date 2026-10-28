@@ -6,12 +6,9 @@ license = "MIT OR Apache-2.0"
 authors = ["Emilio Torres"]
 
 [dependencies]
-chrono = "0.4.45"
 serde = { version = "1.0.229", features = ["derive"] }
 serde_json = "1.0.151"
-serde_with = "3.21.0"
 regress = "0.11.1"
-libtest-mimic = "0.8.2"
 
 [workspace]
 members = [
@@ -22,7 +19,7 @@ members = [
 ]
 
 [dev-dependencies]
-serde_path_to_error = "0.1.20"
+libtest-mimic = "0.8.2"
 fixture-meta = {path = "tools/fixture-meta"}
 
 [[test]]
